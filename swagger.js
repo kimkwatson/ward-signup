@@ -3,7 +3,7 @@ const swaggerAutogen = require('swagger-autogen')();
 const doc = {
     info: {
         title: 'WardSignup API',
-        description: 'API for ward signup sheets'
+        description: 'API for ward signup sheets, slots, and claims'
     },
     host: 'localhost:3000',
     schemes: ['http']
