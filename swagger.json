@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "WardSignup API",
-    "description": "API for ward signup sheets",
+    "description": "API for ward signup sheets, slots, and claims",
     "version": "1.0.0"
   },
   "host": "localhost:3000",
