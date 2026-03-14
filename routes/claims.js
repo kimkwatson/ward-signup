@@ -1,27 +1,21 @@
 const express = require("express");
 const router = express.Router();
 
-const {
-  getClaims,
-  getClaimById,
-  createClaim,
-  updateClaim,
-  deleteClaim
-} = require("../controllers/claimController");
+const claimsController = require("../controllers/claims");
 
 // get all claims
-router.get("/", getClaims);
+router.get("/", claimsController.getClaims);
 
 // get one claim by id
-router.get("/:id", getClaimById);
+router.get("/:id", claimsController.getClaimById);
 
 // create new claim
-router.post("/", createClaim);
+router.post("/", claimsController.createClaim);
 
 // update claim by id
-router.put("/:id", updateClaim);
+router.put("/:id", claimsController.updateClaim);
 
 // delete claim by id
-router.delete("/:id", deleteClaim);
+router.delete("/:id", claimsController.deleteClaim);
 
 module.exports = router;

@@ -1,27 +1,21 @@
 const express = require("express");
 const router = express.Router();
 
-const {
-  getSlots,
-  getSlotById,
-  createSlot,
-  updateSlot,
-  deleteSlot
-} = require("../controllers/slotController");
+const slotsController = require("../controllers/slots");
 
 // get all slots
-router.get("/", getSlots);
+router.get("/", slotsController.getSlots);
 
 // get one slot by id
-router.get("/:id", getSlotById);
+router.get("/:id", slotsController.getSlotById);
 
 // create new slot
-router.post("/", createSlot);
+router.post("/", slotsController.createSlot);
 
 // update slot by id
-router.put("/:id", updateSlot);
+router.put("/:id", slotsController.updateSlot);
 
 // delete slot by id
-router.delete("/:id", deleteSlot);
+router.delete("/:id", slotsController.deleteSlot);
 
 module.exports = router;

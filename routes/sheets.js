@@ -1,27 +1,21 @@
 const express = require("express");
 const router = express.Router();
 
-const {
-  getSheets,
-  getSheetById,
-  createSheet,
-  updateSheet,
-  deleteSheet
-} = require("../controllers/sheetController");
+const sheetsController = require("../controllers/sheets");
 
 // get all sheets
-router.get("/", getSheets);
+router.get("/", sheetsController.getSheets);
 
 // get one sheet by id
-router.get("/:id", getSheetById);
+router.get("/:id", sheetsController.getSheetById);
 
 // create new sheet
-router.post("/", createSheet);
+router.post("/", sheetsController.createSheet);
 
 // update sheet by id
-router.put("/:id", updateSheet);
+router.put("/:id", sheetsController.updateSheet);
 
 // delete sheet by id
-router.delete("/:id", deleteSheet);
+router.delete("/:id", sheetsController.deleteSheet);
 
 module.exports = router;
