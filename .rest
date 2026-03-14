@@ -16,3 +16,22 @@ Content-Type: application/json
 
 ### Delete User
 DELETE http://localhost:3000/users/#
+
+### All Sheets
+GET http://localhost:3000/sheets
+
+### Sheet by ID
+GET http://localhost:3000/sheets/#
+
+### New Sheet
+POST http://localhost:3000/sheets
+Content-Type: application/json
+{}
+
+### Update Sheet
+PUT http://localhost:3000/sheets/#
+Content-Type: application/json
+{}
+
+### Delete Sheet
+DELETE http://localhost:3000/sheets/#
