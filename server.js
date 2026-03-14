@@ -7,7 +7,10 @@ const swaggerFile = require("./swagger.json");
 
 const { connectToDb } = require("./db/connect");
 
+const users = require("./routes/users");
 const sheets = require("./routes/sheets");
+const slots = require("./routes/slots");
+const claims = require("./routes/claims");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
