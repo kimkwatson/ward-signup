@@ -35,3 +35,22 @@ Content-Type: application/json
 
 ### Delete Sheet
 DELETE http://localhost:3000/sheets/#
+
+### All Slots
+GET http://localhost:3000/slots
+
+### Slot by ID
+GET http://localhost:3000/slots/#
+
+### New Slot
+POST http://localhost:3000/slots
+Content-Type: application/json
+{}
+
+### Update Slot
+PUT http://localhost:3000/slots/#
+Content-Type: application/json
+{}
+
+### Delete Slot
+DELETE http://localhost:3000/slots/#
