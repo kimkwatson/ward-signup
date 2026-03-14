@@ -26,3 +26,4 @@ connectToDb(process.env.MONGODB_URI, process.env.DB_NAME).then(() => {
   });
 });
 
+
