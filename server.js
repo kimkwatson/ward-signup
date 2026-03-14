@@ -7,18 +7,19 @@ const swaggerFile = require("./swagger.json");
 
 const { connectToDb } = require("./db/connect");
 
+const sheets = require("./routes/sheets");
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
 
+app.use("/sheets", sheets);
+app.use("/users", users);
+app.use("/slots", slots);
+app.use("/claims", claims);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
-
-// routes
-app.get("/sheets", async (req, res) => {
-    res.send("All sheets");
-});
 
 connectToDb(process.env.MONGODB_URI, process.env.DB_NAME).then(() => {
   app.listen(PORT, () => {
