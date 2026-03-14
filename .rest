@@ -54,3 +54,23 @@ Content-Type: application/json
 
 ### Delete Slot
 DELETE http://localhost:3000/slots/#
+
+### All Claims
+GET http://localhost:3000/claims
+
+### Claim by ID
+GET http://localhost:3000/claims/#
+
+### New Claim
+POST http://localhost:3000/claims
+Content-Type: application/json
+{}
+
+### Update Claim
+PUT http://localhost:3000/claims/#
+Content-Type: application/json
+{}
+
+### Delete Claim
+DELETE http://localhost:3000/claims/#
+
