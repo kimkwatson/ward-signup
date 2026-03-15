@@ -4,18 +4,28 @@ const router = express.Router();
 const claimsController = require("../controllers/claims");
 
 // get all claims
-router.get("/", claimsController.getClaims);
+router.get("/", (req, res) => {
+  res.status(200).json({ message: "getClaims stub" });
+});
 
 // get one claim by id
-router.get("/:id", claimsController.getClaimById);
+router.get("/:id", (req, res) => {
+  res.status(200).json({ message: "getClaimById stub", id: req.params.id });
+});
 
 // create new claim
-router.post("/", claimsController.createClaim);
+router.post("/", (req, res) => {
+  res.status(201).json({ message: "createClaim stub", body: req.body });
+});
 
 // update claim by id
-router.put("/:id", claimsController.updateClaim);
+router.put("/:id", (req, res) => {
+  res.status(200).json({ message: "updateClaim stub", id: req.params.id });
+});
 
 // delete claim by id
-router.delete("/:id", claimsController.deleteClaim);
+router.delete("/:id", (req, res) => {
+  res.status(200).json({ message: "deleteClaim stub", id: req.params.id });
+});
 
 module.exports = router;

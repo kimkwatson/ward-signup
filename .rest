@@ -7,12 +7,23 @@ GET http://localhost:3000/users/#
 ### New User
 POST http://localhost:3000/users
 Content-Type: application/json
-{}
+
+{
+    "name": "John Miller",
+    "email": "johnmiller@example.com",
+    "phone": "123-555-4343",
+    "role": "Bishop"
+}
 
 ### Update User
-PUT http://localhost:3000/users/#
+PUT http://localhost:3000/users/69b64e0c23fb3a87d6ac2270
 Content-Type: application/json
-{}
+{
+    "name": "John Miller",
+    "email": "jmiller@newmail.com",
+    "phone": "123-555-4343",
+    "role": "Bishop"
+}
 
 ### Delete User
 DELETE http://localhost:3000/users/#
@@ -26,12 +37,26 @@ GET http://localhost:3000/sheets/#
 ### New Sheet
 POST http://localhost:3000/sheets
 Content-Type: application/json
-{}
+{
+  "title": "Ward Potluck",
+  "description": "Bring your favorite casserole to share.",
+  "date": "2026-4-12",
+  "location": "Church Building",
+  "createdBy": "Sarah Jones",
+  "createdAt": "2026-3-14"
+}
 
 ### Update Sheet
-PUT http://localhost:3000/sheets/#
+PUT http://localhost:3000/sheets/69b64e8923fb3a87d6ac2273
 Content-Type: application/json
-{}
+{
+  "title": "Ward Potluck",
+  "description": "Bring your favorite casserole to share.",
+  "date": "2026-4-12",
+  "location": "Frontier Park",
+  "createdBy": "Sarah Jones",
+  "createdAt": "2026-3-14"
+}
 
 ### Delete Sheet
 DELETE http://localhost:3000/sheets/#
@@ -45,12 +70,22 @@ GET http://localhost:3000/slots/#
 ### New Slot
 POST http://localhost:3000/slots
 Content-Type: application/json
-{}
+{
+  "slotId": 1,
+  "userId": "",
+  "quantityClaimed": 2,
+  "claimedAt": "2026-3-15"
+}
 
 ### Update Slot
-PUT http://localhost:3000/slots/#
+PUT http://localhost:3000/slots/69b64edc23fb3a87d6ac2276
 Content-Type: application/json
-{}
+{
+  "slotId": 1,
+  "userId": "",
+  "quantityClaimed": 3,
+  "claimedAt": "2026-3-15"
+}
 
 ### Delete Slot
 DELETE http://localhost:3000/slots/#
@@ -64,12 +99,22 @@ GET http://localhost:3000/claims/#
 ### New Claim
 POST http://localhost:3000/claims
 Content-Type: application/json
-{}
+{
+  "slotId": 1,
+  "userId": "",
+  "quantityClaimed": 2,
+  "claimedAt": "2026-03-15"
+}
 
 ### Update Claim
-PUT http://localhost:3000/claims/#
+PUT http://localhost:3000/claims/69b650e223fb3a87d6ac2283
 Content-Type: application/json
-{}
+{
+  "slotId": 1,
+  "userId": "",
+  "quantityClaimed": 3,
+  "claimedAt": "2026-03-15"
+}
 
 ### Delete Claim
 DELETE http://localhost:3000/claims/#
