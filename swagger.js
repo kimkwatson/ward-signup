@@ -5,8 +5,8 @@ const doc = {
         title: 'WardSignup API',
         description: 'API for ward signup sheets, slots, and claims'
     },
-    host: 'localhost:3000',
-    schemes: ['http']
+    host: 'ward-signup.onrender.com',
+    schemes: ['https']
 };
 
 const outputFile = './swagger.json';

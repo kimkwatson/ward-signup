@@ -5,10 +5,10 @@
     "description": "API for ward signup sheets, slots, and claims",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "ward-signup.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/users/": {
