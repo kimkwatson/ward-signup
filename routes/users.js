@@ -4,15 +4,10 @@ const router = express.Router();
 const usersController = require("../controllers/users");
 
 // get all users
-router.get("/", (req, res) => {
-  res.status(200).json({ message: "getUsers stub" });
-});
+router.get("/", usersController.getUsers);
 
 // get one user by id
-router.get("/:id", (req, res) => {
-  res.status(200).json({ message: "getUserById stub", id: req.params.id });
-});
-
+router.get("/:id", usersController.getUserById);
 
 // create new user
 router.post("/", (req, res) => {

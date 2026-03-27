@@ -2,7 +2,7 @@
 GET http://localhost:3000/users
 
 ### User by ID
-GET http://localhost:3000/users/#
+GET http://localhost:3000/users/69b64e0c23fb3a87d6ac2270
 
 ### New User
 POST http://localhost:3000/users
