@@ -1,4 +1,6 @@
+console.log(require.resolve("./db/connect"));
 require("dotenv").config();
+const uri = process.env.MONGODB_URI;
 
 const express = require("express");
 const cors = require("cors");
@@ -6,6 +8,7 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerFile = require("./swagger.json");
 
 const { connectToDb } = require("./db/connect");
+connectToDb(uri,"YourDbName");
 
 const users = require("./routes/users");
 const sheets = require("./routes/sheets");
