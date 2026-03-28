@@ -44,7 +44,78 @@ const getUserById = async (req, res) => {
     }
 };
 
-module.exports = { getUsers, getUserById };const { getDb } = require("../db/connect");
+// create new user
+const createUser = async (req, res) => {
+    try {
+        const user = {
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            role: req.body.role,
+        };
+
+        const response = await mongodb
+                    .getDb()
+                    .db()
+                    .collection("users")
+                    .insertOne(user);
+        
+                return res.status(201).json({ id: response.insertedId });
+            } catch(err) {
+                console.error(err);
+                return res.status(500).json({ message: "An error occurred while creating the user." });
+            }
+};
+
+// update user by ID
+const updateUser = async (req, res) => {
+    try{
+        const userId = new ObjectId(req.params.id);
+        
+        const user = {
+            name: req.body.name,
+            email: req.body.email,
+            phone: req.body.phone,
+            role: req.body.role,
+        };
+        
+        const response = await mongodb
+            .getDb()
+            .db()
+            .collection("users")
+            .replaceOne({ _id: userId }, user);
+        
+            if (response.modifiedCount > 0) {
+                return res.status(204).send();
+        } else {
+            return res.status(404).json({ message: "User not found." });
+        }
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: "An error occured while updating the user." });
+    }
+    
+};
+
+// delete user by id
+const deleteUser = async (req, res) => {
+    try {
+    const userId = new ObjectId(req.params.id);
+
+    const response = await mongodb.getDb().db().collection("users").deleteOne({ _id: userId });
+
+    if (response.deletedCount > 0) {
+        return res.status(200).send();
+    } else {
+        return res.status(404).json({ message: "User not found." });
+    }
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: "An error occurred while deleting the user." });
+    }
+};
+
+module.exports = { getUsers, getUserById, createUser, updateUser, deleteUser };const { getDb } = require("../db/connect");
 
 const getAllUsers = async (req, res) => {
   try {
