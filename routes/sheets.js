@@ -2,34 +2,21 @@ const express = require("express");
 const router = express.Router();
 
 const sheetsController = require("../controllers/sheets");
+const validate = require("../middleware/sheets-validation");
 
 // get all sheets
-router.get("/", (req, res) => {
-  res.status(200).json({ message: "getSheets stub" });
-});
+router.get("/", sheetsController.getSheets);
 
 // get one sheet by id
-router.get("/:id", (req, res) => {
-  res.status(200).json({ message: "getSheetById stub", id: req.params.id });
-});
+router.get("/:id", sheetsController.getSheetById);
 
 // create new sheet
-router.post("/", (req, res) => {
-  res.status(201).json({ message: "createSheet stub", body: req.body });
-});
+router.post("/", validate.sheetsRules(), validate.checkData, sheetsController.createSheet);
 
 // update sheet by id
-router.put("/:id", (req, res) => {
-  res.status(200).json({
-    message: "updateSheet stub",
-    id: req.params.id,
-    body: req.body
-  });
-});
+router.put("/:id", validate.sheetsRules(), validate.checkData, sheetsController.updateSheet);
 
 // delete sheet by id
-router.delete("/:id", (req, res) => {
-  res.status(200).json({ message: "deleteSheet stub", id: req.params.id });
-});
+router.delete("/:id", sheetsController.deleteSheet);
 
 module.exports = router;
