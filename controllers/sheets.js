@@ -2,7 +2,7 @@ const mongodb = require('../db/connect');
 const { ObjectId } = require('mongodb');
 
 // get all sheets
-const getSheets = async (req, res, next) => {
+const getSheets = async (req, res) => {
     try {
         const lists = await mongodb
             .getDb()
@@ -95,7 +95,7 @@ const updateSheet = async (req, res) => {
             .collection("sheets")
             .replaceOne({ _id: sheetId }, sheet);
         
-            if (response.modifiedCount > 0) {
+            if (response.matchedCount > 0) {
                 return res.status(204).send();
         } else {
             return res.status(404).json({ message: "Sheet not found." });
@@ -112,7 +112,7 @@ const deleteSheet = async (req, res) => {
     try {
         const id = req.params.id;
 
-        if(!Object.idValid(id)) {
+        if(!Object.isValid(id)) {
             return res.status(400).json({ message: "Invalid id format." });
         }
     

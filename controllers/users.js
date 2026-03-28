@@ -2,7 +2,7 @@ const mongodb = require('../db/connect');
 const { ObjectId } = require('mongodb');
 
 // get all users
-const getUsers = async (req, res, next) => {
+const getUsers = async (req, res) => {
     try {
         const lists = await mongodb
             .getDb()
@@ -85,7 +85,7 @@ const updateUser = async (req, res) => {
             .collection("users")
             .replaceOne({ _id: userId }, user);
         
-            if (response.modifiedCount > 0) {
+            if (response.matchedCount > 0) {
                 return res.status(204).send();
         } else {
             return res.status(404).json({ message: "User not found." });
