@@ -24,6 +24,7 @@ module.exports = { initDb, getDb };
 
 /*
 async function connectToDb(uri, dbName) {
+  if (db) return db; 
   try {
     const client = new MongoClient(uri);
     await client.connect();
