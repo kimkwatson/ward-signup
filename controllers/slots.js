@@ -108,7 +108,7 @@ const deleteSlot = async (req, res) => {
     try {
         const id = req.params.id;
 
-        if(!Object.isValid(id)) {
+        if (!ObjectId.isValid(id)) {
             return res.status(400).json({ message: "Invalid id format." });
         }
     

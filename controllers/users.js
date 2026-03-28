@@ -100,15 +100,15 @@ const updateUser = async (req, res) => {
 // delete user by id
 const deleteUser = async (req, res) => {
     try {
-    const userId = new ObjectId(req.params.id);
+        const userId = new ObjectId(req.params.id);
 
-    const response = await mongodb.getDb().db().collection("users").deleteOne({ _id: userId });
+        const response = await mongodb.getDb().db().collection("users").deleteOne({ _id: userId });
 
-    if (response.deletedCount > 0) {
-        return res.status(200).send();
-    } else {
-        return res.status(404).json({ message: "User not found." });
-    }
+        if (response.deletedCount > 0) {
+            return res.status(200).send();
+        } else {
+            return res.status(404).json({ message: "User not found." });
+        }
     } catch (err) {
         console.error(err);
         return res.status(500).json({ message: "An error occurred while deleting the user." });

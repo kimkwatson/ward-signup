@@ -2,30 +2,21 @@ const express = require("express");
 const router = express.Router();
 
 const claimsController = require("../controllers/claims");
+const validate = require("../middleware/claims-validation");
 
 // get all claims
-router.get("/", (req, res) => {
-  res.status(200).json({ message: "getClaims stub" });
-});
+router.get("/", claimsController.getClaims);
 
 // get one claim by id
-router.get("/:id", (req, res) => {
-  res.status(200).json({ message: "getClaimById stub", id: req.params.id });
-});
+router.get("/:id", claimsController.getClaimById);
 
 // create new claim
-router.post("/", (req, res) => {
-  res.status(201).json({ message: "createClaim stub", body: req.body });
-});
+router.post("/", validate.claimsRules(), validate.checkData, claimsController.createClaim);
 
 // update claim by id
-router.put("/:id", (req, res) => {
-  res.status(200).json({ message: "updateClaim stub", id: req.params.id });
-});
+router.put("/:id", validate.claimsRules(), validate.checkData, claimsController.updateClaim);
 
 // delete claim by id
-router.delete("/:id", (req, res) => {
-  res.status(200).json({ message: "deleteClaim stub", id: req.params.id });
-});
+router.delete("/:id", claimsController.deleteClaim);
 
 module.exports = router;
