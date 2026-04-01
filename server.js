@@ -1,14 +1,12 @@
 console.log(require.resolve("./db/connect"));
 require("dotenv").config();
-const uri = process.env.MONGODB_URI;
 
 const express = require("express");
 const cors = require("cors");
 const swaggerUi = require("swagger-ui-express");
 const swaggerFile = require("./swagger.json");
 
-const { connectToDb } = require("./db/connect");
-connectToDb(uri,"YourDbName");
+const mongodb = require("./db/connect");
 
 const users = require("./routes/users");
 const sheets = require("./routes/sheets");
@@ -34,7 +32,7 @@ const startServer = async () => {
         console.log('MongoDB connected');
 
         app.listen(PORT, () => {
-          console.log(`Server running on port ${{PORT}}`);
+          console.log(`Server running on port ${PORT}`);
         });
     } catch (error) {
         console.error('Failed to start server: ', error);
@@ -42,12 +40,4 @@ const startServer = async () => {
 };
 
 startServer();
-
-/*
-connectToDb(process.env.MONGODB_URI, process.env.DB_NAME).then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
-}); */
-
 
