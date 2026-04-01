@@ -115,16 +115,4 @@ const deleteUser = async (req, res) => {
     }
 };
 
-module.exports = { getUsers, getUserById, createUser, updateUser, deleteUser };const { getDb } = require("../db/connect");
-
-const getAllUsers = async (req, res) => {
-  try {
-    const db = getDb();
-    const users = await db.collection("users").find().toArray();
-    res.json(users);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-};
-
-module.exports = { getAllUsers };
+module.exports = { getUsers, getUserById, createUser, updateUser, deleteUser };

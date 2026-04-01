@@ -38,3 +38,5 @@ validate.checkData = (req, res, next) => {
 
     next();
 }
+
+module.exports = { usersRules, checkValidation };

@@ -47,3 +47,5 @@ validate.checkData = (req, res, next) => {
 
     next();
 }
+
+module.exports = { sheetsRules, checkValidation };

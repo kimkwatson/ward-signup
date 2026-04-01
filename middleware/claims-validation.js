@@ -20,3 +20,5 @@ validate.checkData = (req, res, next) => {
 
     next();
 }
+
+module.exports = { claimsRules, checkValidation };
