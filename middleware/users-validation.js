@@ -32,11 +32,11 @@ validate.usersRules = () => {
 validate.checkData = (req, res, next) => {
     const errors = validationResult(req);
 
-    if(!errors.isEmpy()) {
+    if(!errors.isEmpty()) {
         return res.status(422).json({ errors: errors.arra })
     }
 
     next();
 }
 
-module.exports = { usersRules, checkValidation };
+module.exports = validate;

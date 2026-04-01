@@ -48,4 +48,4 @@ validate.checkData = (req, res, next) => {
     next();
 }
 
-module.exports = { sheetsRules, checkValidation };
+module.exports = validate;

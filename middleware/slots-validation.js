@@ -35,4 +35,4 @@ validate.checkData = (req, res, next) => {
     next();
 }
 
-module.exports = { slotsRules, checkValidation };
+module.exports = validate;
