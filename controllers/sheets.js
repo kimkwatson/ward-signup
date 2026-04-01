@@ -56,6 +56,9 @@ const createSheet = async (req, res) => {
             // add other fields here
         };
 
+        console.log("DB NAME:", mongodb.getDb().db().databaseName);
+        console.log("BODY:", sheet);
+
         const response = await mongodb
                     .getDb()
                     .db()

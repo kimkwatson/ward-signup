@@ -31,7 +31,7 @@ validate.sheetsRules = () => {
         // location is required must be a string
         body("location")
             .trim()
-            .isLength({ min: 3 }). withMessage("Location must be at least 3 characters in length.")
+            .isLength({ min: 3 }).withMessage("Location must be at least 3 characters in length.")
             .notEmpty().withMessage("Please provide a location.")
             .isString().withMessage("Location must contain letters only."),
 
@@ -41,8 +41,8 @@ validate.sheetsRules = () => {
 validate.checkData = (req, res, next) => {
     const errors = validationResult(req);
 
-    if(!errors.isEmpy()) {
-        return res.status(422).json({ errors: errors.arra })
+    if(!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array() })
     }
 
     next();
