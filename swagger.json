@@ -10,7 +10,60 @@
   "schemes": [
     "http"
   ],
+  "securityDefinitions": {
+    "googleOAuth": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "tokenUrl": "https://oauth2.googleapis.com/token",
+      "scopes": {
+        "openid": "OpenID",
+        "profile": "Read your basic profile",
+        "email": "Read your email address"
+      }
+    }
+  },
   "paths": {
+    "/auth/google": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/google/callback": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/success": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/auth/failure": {
+      "get": {
+        "description": "",
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
     "/users/": {
       "get": {
         "description": "",
@@ -122,6 +175,9 @@
           "204": {
             "description": "No Content"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -146,6 +202,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -199,6 +258,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "422": {
             "description": "Unprocessable Entity"
@@ -276,6 +338,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -303,6 +368,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -350,6 +418,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "422": {
             "description": "Unprocessable Entity"
@@ -421,6 +492,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -448,6 +522,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"
@@ -489,6 +566,9 @@
         "responses": {
           "201": {
             "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "422": {
             "description": "Unprocessable Entity"
@@ -554,6 +634,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "404": {
             "description": "Not Found"
           },
@@ -581,6 +664,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Not Found"

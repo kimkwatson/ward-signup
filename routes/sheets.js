@@ -3,6 +3,7 @@ const router = express.Router();
 
 const sheetsController = require("../controllers/sheets");
 const validate = require("../middleware/sheets-validation");
+const authenticate = require('../middleware/authentication');
 
 // get all sheets
 router.get("/", sheetsController.getSheets);
@@ -11,12 +12,12 @@ router.get("/", sheetsController.getSheets);
 router.get("/:id", sheetsController.getSheetById);
 
 // create new sheet
-router.post("/", validate.sheetsRules(), validate.checkData, sheetsController.createSheet);
+router.post("/", authenticate, validate.sheetsRules(), validate.checkData, sheetsController.createSheet);
 
 // update sheet by id
-router.put("/:id", validate.sheetsRules(), validate.checkData, sheetsController.updateSheet);
+router.put("/:id", authenticate, validate.sheetsRules(), validate.checkData, sheetsController.updateSheet);
 
 // delete sheet by id
-router.delete("/:id", sheetsController.deleteSheet);
+router.delete("/:id", authenticate, sheetsController.deleteSheet);
 
 module.exports = router;

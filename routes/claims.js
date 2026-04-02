@@ -3,6 +3,7 @@ const router = express.Router();
 
 const claimsController = require("../controllers/claims");
 const validate = require("../middleware/claims-validation");
+const authenticate = require('../middleware/authentication');
 
 // get all claims
 router.get("/", claimsController.getClaims);
@@ -11,12 +12,12 @@ router.get("/", claimsController.getClaims);
 router.get("/:id", claimsController.getClaimById);
 
 // create new claim
-router.post("/", validate.claimsRules(), validate.checkData, claimsController.createClaim);
+router.post("/", authenticate, validate.claimsRules(), validate.checkData, claimsController.createClaim);
 
 // update claim by id
-router.put("/:id", validate.claimsRules(), validate.checkData, claimsController.updateClaim);
+router.put("/:id", authenticate, validate.claimsRules(), validate.checkData, claimsController.updateClaim);
 
 // delete claim by id
-router.delete("/:id", claimsController.deleteClaim);
+router.delete("/:id", authenticate, claimsController.deleteClaim);
 
 module.exports = router;

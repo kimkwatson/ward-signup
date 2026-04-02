@@ -3,6 +3,7 @@ const router = express.Router();
 
 const usersController = require("../controllers/users");
 const validate = require("../middleware/users-validation")
+const authenticate = require('../middleware/authentication');
 
 // get all users
 router.get("/", usersController.getUsers);
@@ -14,9 +15,9 @@ router.get("/:id", usersController.getUserById);
 router.post("/", validate.usersRules(), validate.checkData, usersController.createUser);
 
 // update user by id
-router.put("/:id", validate.usersRules(), validate.checkData, usersController.updateUser);
+router.put("/:id", authenticate, validate.usersRules(), validate.checkData, usersController.updateUser);
 
 // delete user by id
-router.delete("/:id", usersController.deleteUser);
+router.delete("/:id", authenticate, usersController.deleteUser);
 
 module.exports = router;
