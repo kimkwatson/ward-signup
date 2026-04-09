@@ -41,6 +41,7 @@ Content-Type: application/json
   "title": "Ward Potluck",
   "description": "Bring your favorite casserole to share.",
   "date": "2026-4-12",
+  "time": "6:00 PM",
   "location": "Church Building",
   "createdBy": "Sarah Jones",
   "createdAt": "2026-3-14"
@@ -53,6 +54,7 @@ Content-Type: application/json
   "title": "Ward Potluck",
   "description": "Bring your favorite casserole to share.",
   "date": "2026-4-12",
+  "time": "5:00 PM",
   "location": "Frontier Park",
   "createdBy": "Sarah Jones",
   "createdAt": "2026-3-14"

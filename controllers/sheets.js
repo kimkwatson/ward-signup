@@ -53,7 +53,8 @@ const createSheet = async (req, res) => {
             date: req.body.date,
             time: req.body.time,
             location: req.body.location,
-            // add other fields here
+            createdBy: req.body.createdBy,
+            createdAt: req.body.createdAt,
         };
 
         console.log("DB NAME:", mongodb.getDb().db().databaseName);
@@ -89,7 +90,8 @@ const updateSheet = async (req, res) => {
             date: req.body.date,
             time: req.body.time,
             location: req.body.location,
-            // add other fields here
+            createdBy: req.body.createdBy,
+            createdAt: req.body.createdAt,
         };
         
         const response = await mongodb
