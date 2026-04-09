@@ -5,65 +5,12 @@
     "description": "API for ward signup sheets, slots, and claims",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "ward-signup.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
   ],
-  "securityDefinitions": {
-    "googleOAuth": {
-      "type": "oauth2",
-      "flow": "accessCode",
-      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
-      "tokenUrl": "https://oauth2.googleapis.com/token",
-      "scopes": {
-        "openid": "OpenID",
-        "profile": "Read your basic profile",
-        "email": "Read your email address"
-      }
-    }
-  },
   "paths": {
-    "/auth/google": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/auth/google/callback": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/auth/success": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/auth/failure": {
-      "get": {
-        "description": "",
-        "responses": {
-          "401": {
-            "description": "Unauthorized"
-          }
-        }
-      }
-    },
     "/users/": {
       "get": {
         "description": "",
@@ -250,6 +197,12 @@
                 },
                 "location": {
                   "example": "any"
+                },
+                "createdBy": {
+                  "example": "any"
+                },
+                "createdAt": {
+                  "example": "any"
                 }
               }
             }
@@ -325,6 +278,12 @@
                   "example": "any"
                 },
                 "location": {
+                  "example": "any"
+                },
+                "createdBy": {
+                  "example": "any"
+                },
+                "createdAt": {
                   "example": "any"
                 }
               }
@@ -673,6 +632,56 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/auth/google": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/google/callback": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/success": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/auth/failure": {
+      "get": {
+        "description": "",
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/logout/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
